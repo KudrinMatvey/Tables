@@ -12,8 +12,8 @@ template <Class TKey, class TValue>
 class TTable
 {
 protected:
-	int DataCount;
-	int eff;
+	int DataCount;//количество данных
+	int eff;//эффективность
 
 public:
 	TTable() { int DataCount = 0, eff = 0; }

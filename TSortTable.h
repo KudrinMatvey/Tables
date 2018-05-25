@@ -4,6 +4,7 @@
 template <class TKey,class TValue>
 class TSortTable :public TArrayTable<TKey, TValue>
 {
+	//TODO добавить конструктор из скантаблицы 
 	virtual bool Find(TKey TK)
 	{
 		int l = 0;

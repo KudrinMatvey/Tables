@@ -22,6 +22,9 @@ public:
 	}
 	bool Insert(TRecord<TKey, TValue> rec)
 	{
+		if (IsFull())
+			throw(rec);
+
 		if (!Find(rec.Key)) {
 			arr[curr] = rec;
 			DataCount++;
@@ -29,35 +32,66 @@ public:
 		}
 		return false;
 	}
+
+
 	bool IsFull()
 	{
 		return (DataCount == size);
 	}
 
-	bool Find(TKey key)
+	bool Find(TKey fkey)
 	{
-		curr = HashFunc(key) % size;
+		curr = HashFunc(fkey) % size;
 		int freepos = -1;
-		for (int i = 0; i < size; i++)
-		{
-			if (arr[curr].Key == " ") eff++;
-			{
-				if (freepos == -1)
+
+		for (int i = 0; i < size; i++) {
+			eff++;
+
+			if (arr[curr].Key == "") {
+				if (freepos == -1) {
 					return false;
-				else
-				{
-				curr = freepos;
-				return false;
+				}
+				else {
+					curr = freepos;
+					return false;
 				}
 			}
-			if (arr[curr].Key == key) return true;
-			if (freepos == -1 && arr[curr].Key == "&")
-			{
-				curr = (curr + step) % size;
+
+			if (arr[curr].Key == fkey) {
+				return true;
+			}
+
+			if ((freepos == -1) && (arr[curr].Key == "&")) {
 				freepos = curr;
 			}
+
+			curr = (curr + step) % size;
 		}
 		return false;
+
+
+		//curr = HashFunc(key) % size;
+		//int freepos = -1;
+		//for (int i = 0; i < size; i++)
+		//{
+		//	if (arr[curr].Key == " ") eff++;
+		//	{
+		//		if (freepos == -1)
+		//			return false;
+		//		else
+		//		{
+		//		curr = freepos;
+		//		return false;
+		//		}
+		//	}
+		//	if (arr[curr].Key == key) return true;
+		//	if (freepos == -1 && arr[curr].Key == "&")
+		//	{
+		//		curr = (curr + step) % size;
+		//		freepos = curr;
+		//	}
+		//}
+		//return false;
 	}
 
 	void Delete(TKey key)
@@ -70,16 +104,17 @@ public:
 	}
 	//TODO Insert
 
+
 	void Reset()
 	{
 		curr = 0;
-//		while ((arr[curr].Key == "&" || arr[curr].Key == " ") && curr < size)
+		while ((arr[curr].Key == "&" || arr[curr].Key == " ") && curr < size)
 			curr++;
 	}
 	void GoNext()
 	{
 		while ((++curr < size)) {
-		//	if (((arr[curr].Key != "&") && (arr[curr].Key != "")))
+			if (((arr[curr].Key != "&") && (arr[curr].Key != "")))
 				break;
 		}
 	}
@@ -96,5 +131,9 @@ public:
 	}
 	void SetCurrVal(TValue val) {
 		arr[curr].Value = val;
+	}
+	void IncrCurrVal()
+	{
+		arr[curr].Value++;
 	}
 };

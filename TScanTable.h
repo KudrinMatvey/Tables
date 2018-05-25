@@ -3,7 +3,8 @@
 
 template<class TKey,class TValue>
 class TScanTable :public TArrayTable<TKey, TValue>
-{public:
+{
+public:
 	TScanTable(int _size = 1) : TArrayTable<TKey, TValue>(_size) {}
 	virtual bool Find(TKey l)
 	{
@@ -22,13 +23,15 @@ class TScanTable :public TArrayTable<TKey, TValue>
 	
 	virtual bool Insert(TRecord<TKey, TValue> tr)
 	{
-		if(!IsFull())
-			if (!Find(tr.Key))
-			{
-				arr[curr] = tr;
-				DataCount++;
-				return true;
-			}
+		if (IsFull())
+			throw(tr);
+
+		if (!Find(tr.Key))
+		{
+			arr[curr] = tr;
+			DataCount++;
+			return true;
+		}
 		return false;
 	}
 
@@ -45,7 +48,13 @@ class TScanTable :public TArrayTable<TKey, TValue>
 	{
 		return size == DataCount;
 	}
+	TRecord<TKey, TValue> GetCurr() { return arr[curr]; }
 	void SetCurrVal(TValue TV)
 	{
+		arr[curr].Value = TV;
+	}
+	void IncrCurrVal()
+	{
+		arr[curr].Value++;
 	}
 };

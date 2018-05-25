@@ -129,4 +129,6 @@ public:
 
 	TRecord<TKey, TValue> GetCurr() { return pCurr->record; };
 	void SetCurrVal(TValue TV) { pCurr->record.Value = TV; }
+	void IncrCurrVal(){pCurr->record.Value++; }
+
 };

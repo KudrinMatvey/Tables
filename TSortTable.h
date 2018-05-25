@@ -97,4 +97,8 @@ public:
 	{
 		arr[curr].Value = TV;
 	}
+	void IncrCurrVal()
+	{
+		arr[curr].Value++;
+	}
 };

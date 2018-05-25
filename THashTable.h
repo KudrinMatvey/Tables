@@ -1,7 +1,7 @@
 #pragma once
 #include"TTable.h"
-template <class TKey,TValue>
-class THashTable :public TTable<TKey, TValue>
+template <class TKey,class TValue>
+class THashTable :public TTable<TKey,TValue>
 {
 protected:
 	int HashFunc(TKey TK)

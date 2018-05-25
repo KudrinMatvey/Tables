@@ -1,16 +1,4 @@
 ﻿  Source.cpp
-c:\users\матвей\documents\visual studio 2015\projects\tables\tables\ttable.h(11): error C2061: синтаксическая ошибка: идентификатор "Class"
-c:\users\матвей\documents\visual studio 2015\projects\tables\tables\ttable.h(42): error C2913: явная специализация; "TTable" не является специализацией класса-шаблона
-c:\users\матвей\documents\visual studio 2015\projects\tables\tables\tarraytable.h(5): error C2955: "TTable": для использования класс шаблон требуется список аргументов шаблон
-  c:\users\матвей\documents\visual studio 2015\projects\tables\tables\ttable.h(13): note:  см. объявление "TTable"
-  c:\users\матвей\documents\visual studio 2015\projects\tables\tables\tarraytable.h(26): note: см. ссылку на создание экземпляров класса шаблон при компиляции "TArrayTable<TKey,TValue>"
-c:\users\матвей\documents\visual studio 2015\projects\tables\tables\tarraytable.h(7): error C2065: Tkey: необъявленный идентификатор
-c:\users\матвей\documents\visual studio 2015\projects\tables\tables\tarraytable.h(7): error C2923: TRecord: "Tkey" не является допустимым аргументом типа шаблон для параметра "TKey"
-c:\users\матвей\documents\visual studio 2015\projects\tables\tables\tarraytable.h(19): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
-c:\users\матвей\documents\visual studio 2015\projects\tables\tables\tarraytable.h(21): warning C4183: GetCurr: отсутствие возвращаемого типа; предполагается функция-член, возвращающая "int"
-c:\users\матвей\documents\visual studio 2015\projects\tables\tables\tscantable.h(22): error C2065: Tkey: необъявленный идентификатор
-  c:\users\матвей\documents\visual studio 2015\projects\tables\tables\tscantable.h(42): note: см. ссылку на создание экземпляров класса шаблон при компиляции "TScantable<TKey,TValue>"
-c:\users\матвей\documents\visual studio 2015\projects\tables\tables\tscantable.h(22): error C2923: TRecord: "Tkey" не является допустимым аргументом типа шаблон для параметра "TKey"
-c:\users\матвей\documents\visual studio 2015\projects\tables\tables\tsorttable.h(31): error C2065: Tvalue: необъявленный идентификатор
-  c:\users\матвей\documents\visual studio 2015\projects\tables\tables\tsorttable.h(46): note: см. ссылку на создание экземпляров класса шаблон при компиляции "TSortTable<TKey,TValue>"
-c:\users\матвей\documents\visual studio 2015\projects\tables\tables\tsorttable.h(31): error C2923: TRecord: "Tvalue" не является допустимым аргументом типа шаблон для параметра "TValue"
+c:\users\матвей\documents\github\tables\source.cpp(16): error C2065: string: необъявленный идентификатор
+c:\users\матвей\documents\github\tables\source.cpp(16): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "str"
+c:\users\матвей\documents\github\tables\source.cpp(16): error C2065: str: необъявленный идентификатор

@@ -4,18 +4,18 @@ template <class TKey,class TValue>
 class TArrayTable :public TTable<TKey, TValue>
 {
 protected:
-	TRecord<Tkey, TValue> *arr;
+	TRecord<TKey, TValue> *arr;
 	int size, curr;
 
 	TArrayTable(int _size = 100)
 	{
 		size = _size;
-		arr = new TRecord<TKey, TValye>[size];
+		arr = new TRecord<TKey, TValue>[size];
 	}
 	~TArrayTable() { delete[] arr; }
 	//TODO констр коп оп присв
 
-	GetCurr(int cn)
+	TRecord GetCurr(int cn)
 	{
 		return(arr[cn]);
 	}

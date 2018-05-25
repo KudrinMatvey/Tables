@@ -8,7 +8,7 @@ struct TRecord
 	TValue Value;
 };
 
-template <Class TKey, class TValue>
+template <class TKey, class TValue>
 class TTable
 {
 protected:
@@ -18,10 +18,10 @@ protected:
 public:
 	TTable() { int DataCount = 0, eff = 0; }
 	
-	bool IsEmpty{ return(!DataCount); }
+	bool IsEmpty(){ return(!DataCount); }
 	virtual bool IsFull() = 0;
 	virtual bool Find(TKey TK) = 0;
-	virtual bool Insert(TRecord<Tkey, TValue>) = 0;
+	virtual bool Insert(TRecord<TKey, TValue>) = 0;
 	virtual void Delete(TKey TK) = 0;
 	virtual void GoNext() = 0;
 	virtual bool IsEnd() = 0;
@@ -29,7 +29,12 @@ public:
 	virtual TRecord<TKey, TValue> GetCurr() = 0;
 	virtual void SetCurrVal(TValue TV) = 0;
 
-
+	void effinc()
+	{
+		eff++;
+	}
+	void nulleff()
+	{eff = 0;}
 	void Print()
 	{
 		TRecord<TKey, Tvalue> tmp;

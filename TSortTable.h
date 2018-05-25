@@ -30,7 +30,7 @@ class TSortTable :public TArrayTable<TKey, TValue>
 		return false;
 	}
 	
-	virtual bool Insert(TRecord<TKey, Tvalue> tr)
+	virtual bool Insert(TRecord<TKey, TValue> tr)
 	{
 		if (!Find(tr.Key))
 		{

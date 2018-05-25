@@ -2,7 +2,7 @@
 #include"TArrayTable.h"
 
 template<class TKey,class TValue>
-class TScantable :public TArrayTable<TKey, TValue>
+class TScanTable :public TArrayTable<TKey, TValue>
 {
 	virtual bool Find(TKey l)
 	{
@@ -19,7 +19,7 @@ class TScantable :public TArrayTable<TKey, TValue>
 	return false;
 	}
 	
-	virtual bool Insert(TRecord<Tkey, TValue> tr)
+	virtual bool Insert(TRecord<TKey, TValue> tr)
 	{
 		if(!IsFull())
 			if (!Find(tr.Key))

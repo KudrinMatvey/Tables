@@ -4,6 +4,18 @@
 template <class TKey,class TValue>
 class TSortTable :public TArrayTable<TKey, TValue>
 {
+public:
+	TSortTable(int _size = 1) : TArrayTable<TKey, TValue>(_size) {}
+	TSortTable(TScanTable<TKey,TValue> &tc)
+	{
+		size = tc.size;
+		DataCount = tc.DataCount;
+		curr = tc.curr;
+		arr = new TRecord<TKey, TValue>[size];
+		for (int i = 0; i < size; i++)
+			arr[i] = tc.arr[i];
+		QuickSort(0, DataCount - 1);
+	}
 	//TODO добавить конструктор из скантаблицы 
 	virtual bool Find(TKey TK)
 	{
@@ -15,12 +27,12 @@ class TSortTable :public TArrayTable<TKey, TValue>
 		{
 			m = (r + l) / 2;
 			eff++;
-			if (arr[m].Key == k)
+			if (arr[m].Key == TK)
 			{
 				curr = m;
 				return true;
 			}
-			if (arr[m].Key == k)
+			if (arr[m].Key == TK)
 			{
 				l = m + 1;
 			}
@@ -36,7 +48,7 @@ class TSortTable :public TArrayTable<TKey, TValue>
 		{
 			for (int i = DataCount; i > curr; i--)
 			{
-				arr[i] = arr[i]
+				arr[i] = arr[i];//TODO 
 					eff++;
 			}
 			arr[curr] = tr;
@@ -64,5 +76,25 @@ class TSortTable :public TArrayTable<TKey, TValue>
 				eff++;
 				if (i <= j) swap(arr[i]; arr[j]);//TODO swap 
 		}
+	}
+	bool IsFull()
+	{
+		return(size == DataCount);
+	}
+	void Delete(TKey TK)
+	{
+		if (Find(TK))
+		{
+			arr[curr] = arr[DataCount - 1];
+			DataCount--;
+		}
+	}
+	TRecord<TKey, TValue> GetCurr()
+	{
+		return arr[curr];
+	}
+	void SetCurrVal(TValue TV)
+	{
+		arr[curr].Value = TV;
 	}
 };

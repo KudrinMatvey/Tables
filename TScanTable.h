@@ -3,7 +3,8 @@
 
 template<class TKey,class TValue>
 class TScanTable :public TArrayTable<TKey, TValue>
-{
+{public:
+	TScanTable(int _size = 1) : TArrayTable<TKey, TValue>(_size) {}
 	virtual bool Find(TKey l)
 	{
 		for (int i = 0; i < DataCount; i++)
@@ -36,7 +37,15 @@ class TScanTable :public TArrayTable<TKey, TValue>
 		if (Find(tk))
 		{
 			arr[curr] = arr[DataCount - 1];
+			eff++;
 			DataCount--;
 		}
+	}
+	bool IsFull()
+	{
+		return size == DataCount;
+	}
+	void SetCurrVal(TValue TV)
+	{
 	}
 };

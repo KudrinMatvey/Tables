@@ -12,12 +12,22 @@ protected:
 		size = _size;
 		arr = new TRecord<TKey, TValue>[size];
 	}
+	
+	TArrayTable(TArrayTable<TKey,TValue> &ta)
+	{
+		size = ta.Size;
+		arr = new TRecord<TKey, TValue>[size];
+	}
+
+	TArrayTable<TKey, TValue> operator = (const TArrayTable<TKey, TValue> &ta) {};
+
 	~TArrayTable() { delete[] arr; }
+
 	//TODO констр коп оп присв
 
-	TRecord GetCurr(int cn)
+	TRecord<TKey,TValue> GetCurr()
 	{
-		return(arr[cn]);
+		return(arr[curr]);
 	}
 
 	void Reset() { curr = 0; }

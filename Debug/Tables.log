@@ -1,4 +1,4 @@
 ﻿  Source.cpp
-c:\users\матвей\documents\github\tables\source.cpp(16): error C2065: string: необъявленный идентификатор
-c:\users\матвей\documents\github\tables\source.cpp(16): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "str"
-c:\users\матвей\documents\github\tables\source.cpp(16): error C2065: str: необъявленный идентификатор
+c:\users\матвей\documents\visual studio 2015\projects\tables\tables\source.cpp(14): warning C4101: buffer: неиспользованная локальная переменная
+  Tables.vcxproj -> C:\Users\Матвей\Documents\Visual Studio 2015\Projects\Tables\Debug\Tables.exe
+  Tables.vcxproj -> C:\Users\Матвей\Documents\Visual Studio 2015\Projects\Tables\Debug\Tables.pdb (Partial PDB)
